@@ -3,7 +3,7 @@
 가상 제조기업의 회사 소개, 제품 카탈로그, 문의 접수, 제작자 확인 화면을 담은 포트폴리오 프로젝트입니다. **실제 회사·제품·고객 사례가 아니며 실제 견적이나 판매를 진행하지 않습니다.**
 
 - [공개 데모](https://nexmill-industrial-demo.oh6428.chatgpt.site/)
-- [위시켓 포트폴리오](https://www.wishket.com/partners/p/ohyoseok92/portfolio/311600/)
+- [위시켓 포트폴리오](https://www.wishket.com/partners/p/ohyoseok92/portfolio/322728/)
 - [위시켓 첨부용 PDF](portfolio/NEXMILL-Wishket-Portfolio.pdf)
 - [포트폴리오 등록 문안](PORTFOLIO-WISHKET.md)
 
