@@ -1,0 +1,7 @@
+import Link from "next/link";
+import { company } from "@/lib/site-data";
+
+export function SiteHeader() { return <header className="site-header"><div className="demo-banner">포트폴리오 시연용 · 가상 기업 및 제품</div><div className="nav-shell container"><Link href="/" className="brand" aria-label={`${company.name} 홈`}><span className="brand-mark">N<span>.</span></span><span>{company.name}<small>PRECISION SYSTEMS</small></span></Link><nav className="desktop-nav" aria-label="주 메뉴"><Link href="/about">회사 소개</Link><Link href="/products">제품</Link><Link href="/contact">문의 접수</Link></nav><Link className="header-cta" href="/contact">프로젝트 문의 <span aria-hidden="true">↗</span></Link><details className="mobile-menu"><summary aria-label="메뉴 열기"><span /><span /><span /></summary><nav aria-label="모바일 메뉴"><Link href="/about">회사 소개</Link><Link href="/products">제품</Link><Link href="/contact">문의 접수</Link></nav></details></div></header>; }
+
+export function SiteFooter() { return <footer className="site-footer"><div className="container footer-grid"><div><div className="footer-brand">{company.name}<span>.</span></div><p>Precision by design.<br />가공 조건을 함께 읽는 파트너를 상상했습니다.</p></div><div><strong>탐색</strong><Link href="/about">회사 소개</Link><Link href="/products">제품 살펴보기</Link><Link href="/contact">문의 접수 시연</Link></div><div><strong>데모 안내</strong><p>{company.demoNotice}</p></div></div><div className="container footer-bottom"><span>© 2026 {company.name} · Portfolio demonstration</span><span>Concept design · No commercial operation</span></div></footer>; }
+

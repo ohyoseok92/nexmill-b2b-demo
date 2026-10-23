@@ -1,0 +1,9 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import { ProductVisual } from "@/components/product-visual";
+import { getProduct, products } from "@/lib/site-data";
+
+export async function generateStaticParams() { return products.map((product) => ({ slug: product.slug })); }
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const product = getProduct((await params).slug); return product ? { title: product.name, description: product.short } : {}; }
+export default async function ProductDetail({ params }: { params: Promise<{ slug: string }> }) { const product = getProduct((await params).slug); if (!product) notFound(); return <main><div className="container breadcrumb"><Link href="/products">제품</Link> / {product.name}</div><section className="subsection" style={{paddingTop:0}}><div className="container detail-top"><div className="detail-visual"><ProductVisual type={product.visual} /></div><div className="detail-copy"><p className="eyebrow">{product.code} / {product.category}</p><h1>{product.name}</h1><p>{product.description}</p><dl className="spec-list">{product.specs.map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl><Link className="button button-dark" href={`/contact?product=${product.slug}`}>이 제품으로 문의 시연 <span aria-hidden="true">↗</span></Link></div></div></section><section className="subsection" style={{background:"#e9eee8"}}><div className="container two-col"><div><p className="eyebrow">BEFORE PRODUCTION</p><h2>적용 조건을<br />먼저 확인합니다.</h2></div><div className="body-copy"><p>문의 화면에서는 제품과 요청 유형을 고르고 가상 회사 정보를 넣어 접수 과정을 체험할 수 있습니다.</p><p>실제 제품의 치수와 제작 가능 여부는 고객 도면 및 제조업체 검토가 있어야 판단할 수 있습니다. 이 페이지의 그림과 사양은 포트폴리오 예시입니다.</p></div></div></section></main>; }
